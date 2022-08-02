@@ -1,0 +1,29 @@
+#classProduct {
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.singleProduct {
+    border: solid rgb(255, 153, 0) 2px;
+    width: 50vh;
+    background-color: rgb(236, 236, 236);
+    margin: 10px;
+}
+
+#allProducts {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.imgProduct {
+    padding: 10px;
+    width: 80%;
+}
+
+#allProducts :hover {
+    background-color: rgb(204, 204, 204);
+}
+h3{
+    color: rgb(255, 153, 0);
+}
