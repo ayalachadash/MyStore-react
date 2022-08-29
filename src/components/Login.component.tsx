@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import GoogleLogin from "react-google-login";
 import { User } from "../classes/User";
 import '../css/login.css'
-import { getAllUser, signIn, signUp } from "../services/Login.service";
+import { getAllUser, signIn, signInWithGoogle, signUp } from "../services/Login.service";
 
 class Login extends Component {
     state = {
@@ -11,13 +12,16 @@ class Login extends Component {
     }
     render(): React.ReactNode {
         const csignUp = () => {
-            
+            getAllUser();
         }
         const csignIn = () => {
             signIn(new User(this.state.name, this.state.email, this.state.password));
         }
         const getAllUsers =()=>{
             getAllUser();
+        }
+        const withGoogle=()=>{
+            signInWithGoogle();
         }
         return <div>
 
@@ -28,6 +32,7 @@ class Login extends Component {
             </form>
             <button aria-label="Username" aria-describedby="basic-addon1" className="form-control" onClick={csignIn}>signIn</button>
             <button aria-label="Username" aria-describedby="basic-addon1" className="form-control" onClick={csignUp}>signUp</button>
+            <button aria-label="Username" aria-describedby="basic-addon1" className="form-control" onClick={withGoogle}>signIn with google</button>
 
         </div>
     }

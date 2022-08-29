@@ -1,24 +1,29 @@
 import { Product } from "../classes/Product";
-// let token = JSON.parse(sessionStorage.getItem("token"));
 let token = sessionStorage.getItem('token');
 
 export async function getProduct() {
+    if (token == null) {
+        alert("no allow")
+        return [];
+    }
+    else {
+        const response = await fetch('http://localhost:3000/api/products',
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': 'Bearer ' + token,
+                },
+            });
+        const body = await response.json();
 
-    const response = await fetch('http://localhost:3000/api/products',
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': 'Bearer ' + token,
-            },
-        });
-    const body = await response.json();
+        if (response.status !== 200) {
+            throw Error("err not status 200")
+        }
 
-    if (response.status !== 200) {
-        throw Error("err not status 200")
+        return body;
     }
 
-    return body;
 }
 
 export async function deleteProduct(_id: string) {

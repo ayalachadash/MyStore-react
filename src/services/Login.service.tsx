@@ -28,3 +28,14 @@ export const signIn = (obj: User) => {
             return data;
         })
 }
+export const signInWithGoogle = () => {
+    console.log("hello goole")
+
+    axios.get('http://localhost:3000/auth/google')
+        .then(res => {            
+            const data = res.data;
+            console.log(data);
+            //sessionStorage.setItem("token", data);
+            return data;
+        })
+}

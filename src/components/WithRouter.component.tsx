@@ -26,23 +26,3 @@ export interface IWithRouter  {
   context:Context
 }
 
-
-
-///my
-// import React from 'react';
-// import {NavigateOptions, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
-// function WithRouter(Component: React.ComponentType<IWithRouter & Object>) {
-//   function ComponentWithRouterProp(props: any) {
-//     let location = useLocation();
-//     let navigate = useNavigate();
-//     let params = useParams();
-//     return <Component {...{location, navigate, params}} />;
-//   }
-//   return ComponentWithRouterProp;
-// }
-// export default WithRouter;
-// export interface IWithRouter  {
-//   location: Location,
-//   navigate: NavigateOptions,
-//   params: Params<string>,
-// }
