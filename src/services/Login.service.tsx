@@ -10,11 +10,12 @@ export const getAllUser = () => {
         })
 }
 
-export const signUp = (obj: User) => {
+export const signUp = (obj: User) => {    
     axios.post('http://localhost:3000/api/users/signUp', { params: obj })
         .then(res => {
             const data = res.data;
             console.log(data);
+            sessionStorage.setItem("token", data);
             return data;
         })
 }

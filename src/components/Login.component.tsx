@@ -12,7 +12,7 @@ class Login extends Component {
     }
     render(): React.ReactNode {
         const csignUp = () => {
-            getAllUser();
+            signUp(new User(this.state.name, this.state.email, this.state.password));
         }
         const csignIn = () => {
             signIn(new User(this.state.name, this.state.email, this.state.password));
